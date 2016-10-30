@@ -1,8 +1,8 @@
 {
-  "name": "angular-seed",
-  "description": "A starter project for AngularJS",
+  "name": "Firebase Test Web",
+  "description": "A Firebase web test",
   "version": "0.0.0",
-  "homepage": "https://github.com/angular/angular-seed",
+  "homepage": "https://github.com/hansellramos/firebase.test.web",
   "license": "MIT",
   "private": true,
   "dependencies": {
