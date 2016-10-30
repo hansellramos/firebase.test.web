@@ -9,9 +9,26 @@ angular.module('App.register',['ngRoute'])
 	});
 }])
 
-.controller('RegisterCtrl', ['$scope', function($scope){
-	$scope.user = {email:'hansell.ramos@gmail.com', password:''};
+.controller('RegisterCtrl', ['$scope', 'AuthService', function($scope, AuthService){
+	$scope.user = {email:'', password:''};
 	$scope.SignUp = function(event){
+		if(!$scope.registerForm.$invalid){
+			AuthService.register($scope.user)
+			.then(function(user){
+				console.log('Authentication successful');
+				debugger;
+		    })
+		    .catch(function(error){
+		    	debugger;
+		    	if (error.code == 'auth/weak-password') {
+		          	alert('The password is too weak.');
+		        } else if (error.code == 'auth/email-already-in-use') {
+		          	alert('The email already exists.');
+		        } else {
+	    			console.log("Error: "+error.message);
+	    		}
+		    });
+		}
 		//event.preventDefault();
 	}
 }])

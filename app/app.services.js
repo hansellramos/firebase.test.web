@@ -12,6 +12,9 @@ angular.module('App.auth',[])
 		, logout: function(){
 			firebaseAuthObject.$signOut();
 		}
+		, register: function(user){
+			return firebaseAuthObject.$createUserWithEmailAndPassword(user.email, user.password);
+		}
 		, isLoggedIn: function(){
 			return firebaseAuthObject.$getAuth();
 		}
