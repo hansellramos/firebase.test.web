@@ -1,17 +1,17 @@
 'use strict';
  
-angular.module('App.home', ['ngRoute'])
+angular.module('App.login', ['ngRoute'])
  
 // Declared route 
 .config(['$routeProvider', function($routeProvider) {
-	$routeProvider.when('/home', {
-        templateUrl: 'home/home.html',
-        controller: 'HomeCtrl'
+	$routeProvider.when('/login', {
+        templateUrl: 'views/login/login.html',
+        controller: 'LoginCtrl'
     });
 }])
  
 // Home controller
-.controller('HomeCtrl', ['$scope', 'AuthService', function($scope, AuthService) {
+.controller('LoginCtrl', ['$scope', 'AuthService', function($scope, AuthService) {
 	$scope.user = {email:'hansell.ramos@gmail.com', password:''};
 
 	$scope.SignIn = function(event) {
