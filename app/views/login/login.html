@@ -3,16 +3,23 @@
  
     <div class="container">
         <div class="jumbotron" style="padding-bottom:0px;">
-            <h2>Firebase Test App</h2>
+            <h2>Firebase Test Web App - Sign In</h2>
         </div>
-        <form class="form-signin" role="form">
-            <input type="email" ng-model="user.email" class="form-control" placeholder="Email address" required="" autofocus="">
-            <input type="password" ng-model="user.password" class="form-control" placeholder="Password" required="">
+        <form class="form-signin" role="form" name="loginForm">
+            <div class="form-group" ng-class="{ 'has-error' : loginForm.email.$invalid }">
+                <label>Email</label>
+                <input type="email" ng-model="user.email" name="email" class="form-control" required="" autofocus="">
+                <p ng-show="loginForm.email.$invalid">Enter a valid email.</p>
+            </div>
+            <div class="form-group">
+                <div class="form-group" ng-class="{ 'has-error' : loginForm.password.$invalid }">
+                <input type="password" ng-model="user.password" name="password" class="form-control" required="" ng-minlength="6">
+                <p ng-show="loginForm.password.$error.minlength">Min password length is 6 characters.</p>
+            </div>
             <label class="checkbox">
-                <a href="#"> Sign Up</>
+                <a href="#/register"> Sign Up</>
             </label>
-            <button class="btn btn-lg btn-primary btn-block" ng-click="SignIn($event)" type="button">Sign in</button>
+            <button class="btn btn-lg btn-primary btn-block" ng-disabled='loginForm.$invalid'  ng-click="SignIn($event)" type="button">Sign in</button>
           </form>
- 
     </div> 
 </div>

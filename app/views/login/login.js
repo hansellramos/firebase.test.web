@@ -2,7 +2,6 @@
  
 angular.module('App.login', ['ngRoute'])
  
-// Declared route 
 .config(['$routeProvider', function($routeProvider) {
 	$routeProvider.when('/login', {
         templateUrl: 'views/login/login.html',
@@ -10,7 +9,6 @@ angular.module('App.login', ['ngRoute'])
     });
 }])
  
-// Home controller
 .controller('LoginCtrl', ['$scope', 'AuthService', function($scope, AuthService) {
 	$scope.user = {email:'hansell.ramos@gmail.com', password:''};
 
